@@ -1,0 +1,20 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Terraform variable files
+*.tfvars
+*.tfvars.json
+
+# SSH private keys
+*.pem
+*.key
+
+# Ansible
+*.retry
+
+# VS Code
+.vscode/
