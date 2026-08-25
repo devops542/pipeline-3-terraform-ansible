@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Check Tools') {
             steps {
                 sh 'terraform --version'
@@ -15,5 +16,14 @@ pipeline {
                 sh 'aws sts get-caller-identity'
             }
         }
+
+        stage('Terraform Init') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform init'
+                }
+            }
+        }
+
     }
 }
