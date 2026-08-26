@@ -50,5 +50,11 @@ pipeline {
             }
         }
 
+        stage('Ansible Ping') {
+            steps {
+                sh 'ansible -i ansible/inventory webservers -m ping'
+            }
+        }
+
     }
 }
