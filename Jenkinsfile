@@ -1,5 +1,4 @@
 pipeline {
-    agent any
 
     stages {
 
@@ -21,6 +20,14 @@ pipeline {
             steps {
                 dir('terraform') {
                     sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Validate') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform validate'
                 }
             }
         }
