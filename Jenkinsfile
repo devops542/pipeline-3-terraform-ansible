@@ -59,5 +59,13 @@ pipeline {
                 '''
             }
         }
+
+        stage('Ansible Configure') {
+            steps {
+                sh '''
+                    ansible-playbook -i ansible/inventory ansible/jenkins-install.yml
+                '''
+            }
+        }
     }
 }
