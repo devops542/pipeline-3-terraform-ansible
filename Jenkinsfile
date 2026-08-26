@@ -52,9 +52,12 @@ pipeline {
 
         stage('Ansible Ping') {
             steps {
-                sh 'ansible -i ansible/inventory webservers -m ping'
+                sh '''
+                    mkdir -p ~/.ssh
+                    ssh-keyscan -H 13.207.1.197 >> ~/.ssh/known_hosts
+                    ansible -i ansible/inventory webservers -m ping
+                '''
             }
         }
-
     }
 }
